@@ -1,0 +1,170 @@
+// StealthPay: Confidential Split & Payroll Protocol on Midnight Network
+// Language: Compact Smart Contract (Level-3 Compliant ZK Protocol)
+
+pragma language_version >= 0.20.0;
+
+import CompactStandardLibrary;
+
+// Struct storing public on-chain verifiable metadata for an executed payroll batch
+export struct BatchRecord {
+    batchId: Bytes<32>;
+    totalPoolAmount: Uint<64>;
+    recipientCount: Uint<32>;
+    solvencyMerkleRoot: Bytes<32>;
+    disbursedTimestamp: Uint<64>;
+    executed: Boolean;
+}
+
+// Struct representing a private individual salary/payout witness element
+export struct RecipientAllocation {
+    recipientCommitment: Bytes<32>;
+    amount: Uint<64>;
+    salt: Bytes<32>;
+}
+
+// -----------------------------------------------------------------------------
+// PUBLIC LEDGER STATE (Transparent to all network observers & auditors)
+// -----------------------------------------------------------------------------
+export ledger batchCounter: Counter;
+export ledger treasuryVaultBalance: Cell<Uint<64>>;
+export ledger totalHistoricalDisbursed: Cell<Uint<64>>;
+export ledger batchRegistry: Map<Bytes<32>, BatchRecord>;
+export ledger treasuryManagerPubkey: Cell<Bytes<32>>;
+export ledger protocolPaused: Cell<Boolean>;
+
+// -----------------------------------------------------------------------------
+// PRIVATE WITNESS INTERFACES (Local shielded execution inside user enclave)
+// -----------------------------------------------------------------------------
+// Returns the private array of recipient allocations known only to the treasury manager
+witness getRecipientAllocations(): Vector<8, RecipientAllocation>;
+
+// Returns private cryptographic manager signing key for authorization
+witness getManagerSecretKey(): Bytes<32>;
+
+// -----------------------------------------------------------------------------
+// SMART CONTRACT CIRCUITS & TRANSITIONS
+// -----------------------------------------------------------------------------
+
+/**
+ * Initializes the StealthPay treasury contract on Midnight
+ */
+export circuit initializeTreasury(managerPubkey: Bytes<32>): [] {
+    // Ensure contract has not been initialized before
+    assert treasuryVaultBalance.value == 0 "Vault already initialized";
+    treasuryManagerPubkey = disclose(managerPubkey);
+    protocolPaused = false;
+}
+
+/**
+ * Publicly deposits funds into the StealthPay Treasury Vault
+ */
+export circuit depositTreasury(amount: Uint<64>): [] {
+    assert !protocolPaused.value "Protocol is currently paused";
+    assert amount > 0 "Deposit amount must be strictly greater than 0";
+
+    // Increment public vault balance
+    treasuryVaultBalance = disclose(treasuryVaultBalance.value + amount);
+}
+
+/**
+ * Confidential Payroll Disbursal Circuit
+ * 
+ * CORE PRIVACY GUARANTEE:
+ * - Individual recipient addresses and amounts are processed within the ZK witness.
+ * - The mathematical proof guarantees: sum(allocations[0..count]) == poolAmount.
+ * - disclose() is ONLY invoked on the batch total equality and batch commitment hash,
+ *   completely shielding individual salaries from the public ledger.
+ */
+export circuit executeStealthPayroll(
+    batchId: Bytes<32>,
+    poolAmount: Uint<64>,
+    recipientCount: Uint<32>,
+    solvencyMerkleRoot: Bytes<32>,
+    currentTimestamp: Uint<64>
+): [] {
+    // 1. Guard checks on public state
+    assert !protocolPaused.value "Protocol is paused";
+    assert poolAmount > 0 "Pool amount must be positive";
+    assert recipientCount > 0 "Must have at least one recipient";
+    assert recipientCount <= 8 "Recipient count exceeds maximum batch size of 8";
+    assert treasuryVaultBalance.value >= poolAmount "Insufficient treasury vault liquidity";
+    assert !batchRegistry.member(batchId) "Batch ID already executed (replay protection)";
+
+    // 2. Witness Retrieval (Local shielded enclave)
+    const secretKey = getManagerSecretKey();
+    const allocations = getRecipientAllocations();
+
+    // Verify Manager Authorization via secret commitment
+    const computedPubkey = persistent_hash<Vector<2, Bytes<32>>>([
+        pad(32, "stealthpay:auth"),
+        secretKey
+    ]);
+    assert computedPubkey == treasuryManagerPubkey.value "Unauthorized: Invalid treasury manager credentials";
+
+    // 3. Zero-Knowledge Solvency Sum Verification
+    // Compute total disbursement sum from private witness line items
+    let computedSum: Uint<64> = 0;
+    
+    // Unrolled iteration verifying allocation bounds & accumulating sum inside ZK circuit
+    for let i: Uint<32> = 0; i < 8; i = i + 1 {
+        if (i < recipientCount) {
+            const alloc = allocations[i];
+            
+            // Cryptographic range check: individual payout must be > 0 and <= poolAmount
+            assert alloc.amount > 0 "Individual allocation must be greater than zero";
+            assert alloc.amount <= poolAmount "Individual payout exceeds total pool";
+            
+            // Verify commitment integrity for each recipient
+            const expectedCommitment = persistent_hash<Vector<3, Bytes<32>>>([
+                pad(32, "stealthpay:recipient"),
+                alloc.salt,
+                pad(32, alloc.amount as Field)
+            ]);
+            assert alloc.recipientCommitment == expectedCommitment "Malformed recipient commitment";
+
+            computedSum = computedSum + alloc.amount;
+        }
+    }
+
+    // 4. Mathematical Solvency Constraint
+    // Proves that the exact sum disbursed equals the declared pool amount
+    assert computedSum == poolAmount "ZK Solvency Violation: Sum of private allocations does not match declared pool";
+
+    // 5. Deliberate Public State Disclosures
+    // Only disclose the aggregate pool total and batch receipt, NEVER individual payouts
+    const publicBatchId = disclose(batchId);
+    const publicPoolAmount = disclose(poolAmount);
+    const publicRecipientCount = disclose(recipientCount);
+    const publicMerkleRoot = disclose(solvencyMerkleRoot);
+    const publicTimestamp = disclose(currentTimestamp);
+
+    // 6. Update Public Ledger State
+    treasuryVaultBalance = treasuryVaultBalance.value - publicPoolAmount;
+    totalHistoricalDisbursed = totalHistoricalDisbursed.value + publicPoolAmount;
+
+    // Record verified batch execution in public ledger map
+    const record = BatchRecord {
+        batchId: publicBatchId,
+        totalPoolAmount: publicPoolAmount,
+        recipientCount: publicRecipientCount,
+        solvencyMerkleRoot: publicMerkleRoot,
+        disbursedTimestamp: publicTimestamp,
+        executed: true
+    };
+    
+    batchRegistry.insert(publicBatchId, record);
+    batchCounter.increment(1);
+}
+
+/**
+ * Emergency pause circuit for governance protection
+ */
+export circuit setProtocolPause(paused: Boolean): [] {
+    const secretKey = getManagerSecretKey();
+    const computedPubkey = persistent_hash<Vector<2, Bytes<32>>>([
+        pad(32, "stealthpay:auth"),
+        secretKey
+    ]);
+    assert computedPubkey == treasuryManagerPubkey.value "Unauthorized";
+    protocolPaused = disclose(paused);
+}
