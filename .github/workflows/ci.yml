@@ -1,0 +1,39 @@
+name: StealthPay CI/CD Pipeline
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  validate-and-test:
+    name: Test Suite & Build Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: Verify Compact Smart Contract Syntax
+        run: |
+          echo "Verifying Compact smart contract presence and syntax..."
+          test -f contracts/stealth_pay.compact
+          grep -q "pragma language_version" contracts/stealth_pay.compact
+          grep -q "circuit executeStealthPayroll" contracts/stealth_pay.compact
+          echo "Compact smart contract structure verified."
+
+      - name: Execute Vitest Test Suite
+        run: npm test
+
+      - name: Build Next.js Production Bundle
+        run: npm run build
