@@ -1,0 +1,126 @@
+import { PresetTemplate } from '@/types';
+
+export const PRESET_TEMPLATES: PresetTemplate[] = [
+  {
+    id: 'engineering_core',
+    name: 'Core Engineering Sprint',
+    description: 'Confidential split for 5 core protocol & frontend developers',
+    badge: '5 Members',
+    recipients: [
+      {
+        name: 'Elena Rostova',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u01',
+        amount: 14000,
+        department: 'Lead ZK Architect',
+        notes: 'Sprint 24 Halo2 circuit deliverables',
+      },
+      {
+        name: 'Tariq Al-Mansoor',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u02',
+        amount: 12500,
+        department: 'Compact Contract Eng',
+        notes: 'Preprod protocol deployment & testing',
+      },
+      {
+        name: 'Sarah Chen',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u03',
+        amount: 9000,
+        department: 'Frontend Lead',
+        notes: 'Lace DApp connector UX & radar component',
+      },
+      {
+        name: 'Marcus Vance',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u04',
+        amount: 8000,
+        department: 'DevOps & CI/CD',
+        notes: 'GitHub Actions compact compilation pipeline',
+      },
+      {
+        name: 'Aiden Patel',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u05',
+        amount: 5000,
+        department: 'Security Auditor',
+        notes: 'Witness isolation review and solvency checks',
+      },
+    ],
+  },
+  {
+    id: 'dao_bounties',
+    name: 'DAO Bounty & Grant Split',
+    description: 'Disbursal to 6 community bounties & ecosystem grant winners',
+    badge: '6 Bounties',
+    recipients: [
+      {
+        name: 'Midnight Indexer Grant',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u06',
+        amount: 25000,
+        department: 'Infrastructure',
+        notes: 'Milestone 2 GraphQL indexer for Midnight',
+      },
+      {
+        name: 'Compact VSCode Plugin',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u07',
+        amount: 18000,
+        department: 'Developer Tooling',
+        notes: 'Syntax highlighter and compiler integration',
+      },
+      {
+        name: 'Zero-Knowledge Educational Hub',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u08',
+        amount: 12000,
+        department: 'Community & DevRel',
+        notes: 'Interactive Midnight tutorial series',
+      },
+      {
+        name: 'ZK Mobile SDK Explorer',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u09',
+        amount: 15000,
+        department: 'Mobile SDK',
+        notes: 'React Native Lace DApp integration library',
+      },
+      {
+        name: 'Hackathon 1st Place Bounty',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u10',
+        amount: 20000,
+        department: 'Hackathon Prize',
+        notes: 'StealthPay protocol submission award',
+      },
+      {
+        name: 'Audit Committee Stipend',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u11',
+        amount: 10000,
+        department: 'Governance',
+        notes: 'Q3 formal verification stipend',
+      },
+    ],
+  },
+  {
+    id: 'executive_split',
+    name: 'Executive & Strategic Split',
+    description: 'Quarterly executive compensation & treasury operations split',
+    badge: '3 Leaders',
+    recipients: [
+      {
+        name: 'Chief Executive Officer',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u12',
+        amount: 35000,
+        department: 'Executive Team',
+        notes: 'Q3 protocol strategy & enterprise adoption',
+      },
+      {
+        name: 'Chief Technology Officer',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u13',
+        amount: 35000,
+        department: 'Executive Team',
+        notes: 'Q3 ZK circuit deployment & node architecture',
+      },
+      {
+        name: 'Head of Product',
+        address: 'mn_addr_preprod1qz7x8k2w9d3v4f5u6t7g8h9j0k1l2m3n4p5q6r7s8t9u14',
+        amount: 20000,
+        department: 'Product Strategy',
+        notes: 'Level-3 compliance & DApp user experience',
+      },
+    ],
+  },
+];
