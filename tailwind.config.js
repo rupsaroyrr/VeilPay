@@ -1,0 +1,137 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: 'class',
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // VeilPay Core Palette
+        shadow: {
+          void: {
+            950: '#04060A',
+            900: '#070A10',
+            850: '#0B0F18',
+            800: '#101622',
+            750: '#151E2E',
+            700: '#1B263B',
+            600: '#263650',
+            500: '#3D506E',
+            400: '#64748B',
+            300: '#94A3B8',
+            200: '#CBD5E1',
+            100: '#F1F5F9',
+          },
+          purple: {
+            neon: '#C084FC',
+            vivid: '#A855F7',
+            glow: '#9333EA',
+            deep: '#581C87',
+            dark: '#2E1065',
+          },
+          cyan: {
+            neon: '#00F0FF',
+            glow: '#38BDF8',
+            vivid: '#06B6D4',
+            dark: '#083344',
+          },
+          emerald: {
+            neon: '#00FF9D',
+            glow: '#10B981',
+            dark: '#064E3B',
+          },
+        },
+        onyx: {
+          950: '#04060A',
+          900: '#070A10',
+          850: '#0B0F18',
+          800: '#101622',
+          750: '#151E2E',
+          700: '#1B263B',
+          600: '#263650',
+          500: '#3D506E',
+          400: '#64748B',
+          300: '#94A3B8',
+          200: '#CBD5E1',
+          100: '#F1F5F9',
+        },
+        charcoal: {
+          950: '#04060A',
+          900: '#070A10',
+          850: '#0B0F18',
+          800: '#101622',
+          750: '#151E2E',
+          700: '#1B263B',
+          600: '#263650',
+          500: '#3D506E',
+        },
+        emerald: {
+          neon: '#00FF9D',
+          glow: '#10B981',
+          muted: '#059669',
+          dark: '#064E3B',
+          deep: '#022C22',
+        },
+        cyan: {
+          neon: '#00F0FF',
+          glow: '#38BDF8',
+          dark: '#083344',
+        },
+        purple: {
+          neon: '#C084FC',
+          glow: '#A855F7',
+          vivid: '#8B5CF6',
+          dark: '#3B0764',
+        },
+        amber: {
+          neon: '#FFB800',
+          glow: '#F59E0B',
+          dark: '#3D2800',
+        },
+        rose: {
+          neon: '#FF3366',
+          glow: '#F43F5E',
+          dark: '#400814',
+        },
+      },
+      boxShadow: {
+        'neon-purple': '0 0 28px -2px rgba(168, 85, 247, 0.4), 0 0 10px 0px rgba(168, 85, 247, 0.25)',
+        'neon-cyan': '0 0 28px -2px rgba(0, 240, 255, 0.35), 0 0 10px 0px rgba(0, 240, 255, 0.2)',
+        'neon-emerald': '0 0 25px -2px rgba(0, 255, 157, 0.3), 0 0 8px 0px rgba(0, 255, 157, 0.15)',
+        'neon-glow': '0 0 45px -5px rgba(168, 85, 247, 0.25)',
+        'glass-card': '0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.08)',
+        'luxury-card': '0 16px 48px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.12)',
+        'hologram': '0 0 40px -10px rgba(168, 85, 247, 0.3), 0 0 60px -20px rgba(0, 240, 255, 0.2)',
+        'pill': '0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.12)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'shadow-gradient': 'linear-gradient(135deg, #C084FC 0%, #00F0FF 100%)',
+        'emerald-gradient': 'linear-gradient(135deg, #00FF9D 0%, #00F0FF 100%)',
+        'purple-gradient': 'linear-gradient(135deg, #C084FC 0%, #6366F1 100%)',
+        'dark-glass': 'linear-gradient(180deg, rgba(16, 22, 34, 0.85) 0%, rgba(7, 10, 16, 0.95) 100%)',
+        'pedestal-gradient': 'radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.18) 0%, rgba(0, 240, 255, 0.08) 45%, transparent 75%)',
+        'surface-gradient': 'linear-gradient(180deg, rgba(22, 30, 46, 0.6) 0%, rgba(11, 15, 24, 0.85) 100%)',
+      },
+      animation: {
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'glow-pulse': 'glow 2.5s ease-in-out infinite alternate',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        glow: {
+          '0%': { boxShadow: '0 0 15px rgba(168, 85, 247, 0.2)' },
+          '100%': { boxShadow: '0 0 35px rgba(168, 85, 247, 0.45)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+};
