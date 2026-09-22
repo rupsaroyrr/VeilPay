@@ -1,4 +1,4 @@
-name: StealthPay CI/CD Pipeline
+name: VeilPay CI/CD Pipeline
 
 on:
   push:

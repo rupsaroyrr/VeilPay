@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Confidential Split & Payroll Protocol on Midnight Network",
+  "homepage": "https://veil-pay-pied.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

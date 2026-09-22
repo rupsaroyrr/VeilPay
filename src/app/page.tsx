@@ -290,6 +290,18 @@ export default function Home() {
             <span className="text-onyx-700">|</span>
 
             <a
+              href="https://veil-pay-pied.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-shadow-purple-neon flex items-center space-x-1.5 transition text-onyx-300"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Live Demo</span>
+            </a>
+
+            <span className="text-onyx-700">|</span>
+
+            <a
               href="https://midnight.network"
               target="_blank"
               rel="noreferrer"

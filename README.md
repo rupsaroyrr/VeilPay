@@ -2,12 +2,14 @@
 
 > **Production-Grade, Level-3 Compliant Confidential Payroll & Multi-Party Revenue Split dApp** powered by **Midnight Network Compact Smart Contracts**, **Zero-Knowledge Solvency Proofs**, and **Lace Wallet Connector**.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-veil--pay--pied.vercel.app-00F0FF?style=for-the-badge&logo=vercel)](https://veil-pay-pied.vercel.app/)
 [![Explorer Contract](https://img.shields.io/badge/Explorer-Preprod%20Contract-8B5CF6?style=for-the-badge&logo=shield)](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef)
 [![Midnight Preprod](https://img.shields.io/badge/Network-Midnight%20Preprod-00E5FF?style=for-the-badge&logo=shield)](https://midnight.network)
 [![Compact Circuit](https://img.shields.io/badge/Smart%20Contract-Compact%20v0.20-70FFBE?style=for-the-badge)](https://docs.midnight.network)
 [![Level 4 Ready](https://img.shields.io/badge/Compliance-Level%204%20Product-05DF85?style=for-the-badge)](https://midnight.network)
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions%20Passing-success?style=for-the-badge&logo=githubactions)](https://github.com/rupsaroyrr/VeilPay/actions)
 
+> 🚀 **Live Demo (Vercel)**: **[https://veil-pay-pied.vercel.app/](https://veil-pay-pied.vercel.app/)**  
 > 🔍 **Midnight Preprod Explorer (Contract)**: **[https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef)**  
 
 ---
@@ -17,12 +19,12 @@
 | Parameter | Value |
 |---|---|
 | **Contract Name** | `VeilPayProtocol` |
+| **Live Demo (Vercel)** | **[https://veil-pay-pied.vercel.app/](https://veil-pay-pied.vercel.app/)** |
 | **Contract Address (Preprod Placeholder)** | [`0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef`](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef) |
 | **Explorer Verification Link** | **[https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef)** |
 | **GitHub Repository** | **[https://github.com/rupsaroyrr/VeilPay](https://github.com/rupsaroyrr/VeilPay)** |
 | **Target Network** | **Midnight Preprod Testnet** |
 | **Demo Video Walkthrough** | **[https://photos.app.goo.gl/fXJJMXqb31dTU2R69](https://photos.app.goo.gl/fXJJMXqb31dTU2R69)** |
-| **Target Network** | **Midnight Preprod Testnet** |
 | **Smart Contract Language** | **Midnight Compact (`v0.20+ / v0.31+`)** |
 | **ZK Proving Engine** | Halo2 / PLONK Zero-Knowledge Prover |
 
@@ -282,6 +284,7 @@ Every commit and pull request triggers an automated GitHub Actions pipeline (`.g
 | Field | Details |
 |---|---|
 | **Maintainer / Developer** | [rupsaroyrr](https://github.com/rupsaroyrr) |
+| **Live Demo (Vercel)** | [https://veil-pay-pied.vercel.app/](https://veil-pay-pied.vercel.app/) |
 | **GitHub Profile** | [https://github.com/rupsaroyrr](https://github.com/rupsaroyrr) |
 | **Project Repository** | [https://github.com/rupsaroyrr/VeilPay](https://github.com/rupsaroyrr/VeilPay) |
 | **Target Network** | Midnight Preprod Testnet |
