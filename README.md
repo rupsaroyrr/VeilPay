@@ -1,3 +1,4 @@
+
 # 🛡️ VeilPay: Confidential Split & Payroll Protocol on Midnight Network
 
 > **Production-Grade, Level-3 Compliant Confidential Payroll & Multi-Party Revenue Split dApp** powered by **Midnight Network Compact Smart Contracts**, **Zero-Knowledge Solvency Proofs**, and **Lace Wallet Connector**.
@@ -254,7 +255,7 @@ npm run build
 StealthPay includes a comprehensive Vitest automated test suite verifying all Compact ZK circuit constraints, private witness isolation, and mathematical solvency equality:
 
 <div align="center">
-  <img src="image.png" alt="StealthPay 6 Passing Unit & Integration Tests" width="850" />
+  <img width="952" height="392" alt="Screenshot 2026-09-22 152305" src="https://github.com/user-attachments/assets/248cfeb9-703a-4f86-a39c-135e7f73df8b" />
   <p><em>Figure: Execution of 6 passing automated tests covering ZK Solvency, Witness Isolation, and Compact State Transitions.</em></p>
 </div>
 
@@ -273,7 +274,8 @@ StealthPay includes a comprehensive Vitest automated test suite verifying all Co
 Every commit and pull request triggers an automated GitHub Actions pipeline (`.github/workflows/ci.yml`) validating contract syntax, running the 6-part Vitest test suite, and executing an optimized Next.js production build:
 
 <div align="center">
-  <img src="image-1.png" alt="StealthPay GitHub Actions CI/CD Pipeline Passing" width="850" />
+  <img width="1891" height="693" alt="Screenshot 2026-09-22 160621" src="https://github.com/user-attachments/assets/631027ab-5d67-4450-a3c4-b149a2733aae" />
+
   <p><em>Figure: Automated GitHub Actions CI/CD pipeline runs verifying build integrity, Compact smart contract syntax, and test suites.</em></p>
 </div>
 
