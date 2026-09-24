@@ -25,7 +25,7 @@
 | **Explorer Verification Link** | **[https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef)** |
 | **GitHub Repository** | **[https://github.com/rupsaroyrr/VeilPay](https://github.com/rupsaroyrr/VeilPay)** |
 | **Target Network** | **Midnight Preprod Testnet** |
-| **Demo Video Walkthrough** | **[https://photos.app.goo.gl/fXJJMXqb31dTU2R69](https://photos.app.goo.gl/fXJJMXqb31dTU2R69)** |
+| **Demo Video Walkthrough** | **[https://drive.google.com/file/d/1weA9fPCj0BFk9EAqdPUNYo1vMlWI1841/view?usp=sharing](https://drive.google.com/file/d/1weA9fPCj0BFk9EAqdPUNYo1vMlWI1841/view?usp=sharing)** |
 | **Smart Contract Language** | **Midnight Compact (`v0.20+ / v0.31+`)** |
 | **ZK Proving Engine** | Halo2 / PLONK Zero-Knowledge Prover |
 
@@ -151,7 +151,6 @@ StealthPay features a **FinTech Neon Emerald & Deep Charcoal Design System** (`#
 ### 2. Category & Track
 - **Privacy-Preserving DeFi & Enterprise Tools**
 - **Midnight Network Level-3 & Level-4 Compliant Decentralized Application**
-- **Official Product X (Twitter)**: [@StealthPay_Web3](https://x.com/StealthPay_Web3)
 
 ### 3. Problem Addressed
 Transparent public blockchains leak sensitive enterprise payroll and DAO compensation data, exposing team members to financial targeting and competitive espionage. Existing off-chain payroll tools lack cryptographic guarantees of solvency and non-custodial security.
