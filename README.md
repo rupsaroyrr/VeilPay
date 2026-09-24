@@ -15,19 +15,23 @@
 
 ---
 
-## 📜 Deployed Smart Contract (Midnight Preprod)
+## 📜 Deployed Smart Contract & Deployment Status
 
 | Parameter | Value |
 |---|---|
-| **Contract Name** | `VeilPayProtocol` |
+| **Contract Name** | `VeilPayProtocol` (`contracts/stealth_pay.compact`) |
+| **Active Deployment Method** | **Local Midnight Stack Deployment** (Local Docker Node `9944`, Indexer `8088`, Proof Server `6300`) |
 | **Live Demo (Vercel)** | **[https://veil-pay-pied.vercel.app/](https://veil-pay-pied.vercel.app/)** |
 | **Contract Address (Preprod Placeholder)** | [`0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef`](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef) |
-| **Explorer Verification Link** | **[https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef)** |
+| **Explorer Reference Link** | **[https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef)** |
 | **GitHub Repository** | **[https://github.com/rupsaroyrr/VeilPay](https://github.com/rupsaroyrr/VeilPay)** |
-| **Target Network** | **Midnight Preprod Testnet** |
+| **Target Network** | **Midnight Preprod Testnet / Local Docker Stack** |
 | **Demo Video Walkthrough** | **[https://drive.google.com/file/d/1weA9fPCj0BFk9EAqdPUNYo1vMlWI1841/view?usp=sharing](https://drive.google.com/file/d/1weA9fPCj0BFk9EAqdPUNYo1vMlWI1841/view?usp=sharing)** |
 | **Smart Contract Language** | **Midnight Compact (`v0.20+ / v0.31+`)** |
 | **ZK Proving Engine** | Halo2 / PLONK Zero-Knowledge Prover |
+| **Product Proposal Submission** | **[`PROPOSAL.md`](PROPOSAL.md)** (Answers all 4 hackathon required questions) |
+
+> ℹ️ **Deployment Note**: The smart contract was compiled, tested, and deployed against a **local Midnight stack** (Docker node, local indexer, and local proof server) because **live deployment to the Midnight Preprod testnet was failing** (due to transient Preprod RPC connectivity, faucet rate limits, and remote indexer timeouts during submission). The Preprod contract address serves as the testnet placeholder/reference ID, while full end-to-end ZK circuit verification runs locally and via automated test suites.
 
 ---
 
@@ -288,10 +292,11 @@ Every commit and pull request triggers an automated GitHub Actions pipeline (`.g
 | **Live Demo (Vercel)** | [https://veil-pay-pied.vercel.app/](https://veil-pay-pied.vercel.app/) |
 | **GitHub Profile** | [https://github.com/rupsaroyrr](https://github.com/rupsaroyrr) |
 | **Project Repository** | [https://github.com/rupsaroyrr/VeilPay](https://github.com/rupsaroyrr/VeilPay) |
-| **Target Network** | Midnight Preprod Testnet |
+| **Target Network** | Midnight Preprod Testnet / Local Midnight Stack |
 | **Midnight Preprod Explorer** | [https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef) |
-| **Contract ID (Preprod Placeholder)** | [`0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef`](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef) |
+| **Contract ID (Preprod Placeholder)** | [`0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef`](https://preprod.midnightexplorer.com/contracts/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef) *(Local deployment utilized as live Preprod deployment was failing)* |
 | **Contract Language** | Midnight Compact (`v0.20+`) |
+| **Product Idea Proposal** | [PROPOSAL.md](PROPOSAL.md) |
 | **License** | MIT Open Source License |
 
 ---

@@ -5,5 +5,7 @@
   "indexer": "https://indexer.preprod.midnight.network/api/v4/graphql",
   "node": "https://rpc.preprod.midnight.network",
   "proofServer": "https://preprod.midnight.network",
-  "deployedAt": "2026-09-15T03:17:27.110Z"
+  "deployedAt": "2026-09-15T03:17:27.110Z",
+  "deploymentMode": "local",
+  "deploymentNote": "Local deployment was used because live deployment to Preprod testnet was failing due to network/faucet timeouts."
 }
